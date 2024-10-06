@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# CSV data (if confidential)
+hotel_customer_data.csv
+
+# Logs and temporary files
+*.log
+*.env
+*.DS_Store
+
+# Model files (optional if not sharing models)
+models/

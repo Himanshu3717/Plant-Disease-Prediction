@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Training and Dataset Summary Statistics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Include Chart.js or any other library you prefer -->
+</head>
+<body>
+    <h1>Model Training and Dataset Summary Statistics</h1>
+
+    <h2>Model Training Statistics</h2>
+    <table>
+        <tr>
+            <th>Model</th>
+            <th>MSE</th>
+            <th>R²</th>
+            <th>MAE</th>
+            <th>Accuracy (%)</th>
+        </tr>
+        {% for model, metrics in model_stats.items() %}
+        <tr>
+            <td>{{ model }}</td>
+            <td>{{ metrics.MSE }}</td>
+            <td>{{ metrics.R2 }}</td>
+            <td>{{ metrics.MAE }}</td>
+            <td>{{ metrics['Accuracy (%)'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Dataset Summary Statistics</h2>
+    <h3>Gender Distribution</h3>
+    <img src="{{ url_for('static', filename='gender_distribution.png') }}" alt="Gender Distribution" />
+
+    <h3>Visits With Family</h3>
+    <img src="{{ url_for('static', filename='family_visit_distribution.png') }}" alt="Visits With Family" />
+
+    <h3>Reasons to Visit</h3>
+    <img src="{{ url_for('static', filename='reason_distribution.png') }}" alt="Reasons to Visit" />
+
+    <h3>Room Type Distribution</h3>
+    <img src="{{ url_for('static', filename='room_type_distribution.png') }}" alt="Room Type Distribution" />
+
+    <h3>Ratings Distribution</h3>
+    <img src="{{ url_for('static', filename='ratings_distribution.png') }}" alt="Ratings Distribution" />
+</body>
+</html>
